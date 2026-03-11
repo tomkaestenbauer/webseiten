@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
+
 <meta charset="UTF-8">
-<title>{{ title }}</title>
-<link rel="stylesheet" href="/assets/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ title }} | LUDOVIKA</title>
+
+<meta name="description" content="Fotografie aus Begegnung, Zeit und Aufmerksamkeit – Familien, Hochzeiten und Arbeiten für Unternehmen von Tom Kästenbauer.">
+
+<link rel="stylesheet" href="/assets/css/styles.css">
+
+<link rel="icon" href="/assets/images/ludovika/favicon.png">
+
+<meta property="og:title" content="{{ title }} | LUDOVIKA">
+<meta property="og:description" content="Fotografie aus Begegnung, Zeit und Aufmerksamkeit.">
+<meta property="og:image" content="/assets/images/ludovika/start/hero.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ludovika.at">
+
+<meta name="theme-color" content="#ffffff">
+
 </head>
 
 <body>
 
+<div class="scroll-progress"></div>
+
 {% include "nav.html" %}
 
+<main>
 {{ content }}
+</main>
 
 {% include "footer.html" %}
 

@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Eure Hochzeit – LUDOVIKA</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- LUDOVIKA Styles -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+
+    <!-- Landing Page Styles -->
+    <style>
+        /* ===== LANDING PAGE SPEZIFISCH ===== */
+
+        .lp-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background-color: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .lp-hero-label {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 2rem;
+        }
+
+        .lp-hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+
+        .lp-hero p {
+            font-size: 1.15rem;
+            color: var(--color-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .lp-divider {
+            width: 40px;
+            height: 1px;
+            background-color: var(--color-border);
+            margin: 3rem auto;
+        }
+
+        /* ===== VIDEO ===== */
+        .lp-video-section {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--color-bg-light);
+        }
+
+        .lp-video-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .lp-video-label {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .lp-video-title {
+            font-family: var(--font-serif);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 400;
+            margin-bottom: 2rem;
+        }
+
+        .lp-video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-bg);
+        }
+
+        .lp-video-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== SUMMARY ===== */
+        .lp-summary {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .lp-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            padding: 2.5rem;
+            border: 1px solid var(--color-border);
+        }
+
+        .lp-summary-item strong {
+            display: block;
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .lp-summary-item span {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+        }
+
+        .lp-reservation {
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            background-color: var(--color-bg-light);
+            border-left: 2px solid var(--color-primary);
+        }
+
+        .lp-reservation p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--color-secondary);
+        }
+
+        /* ===== HALTUNG ===== */
+        .lp-haltung {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--color-bg-light);
+        }
+
+        .lp-haltung-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .lp-haltung-item {
+            padding: 2rem;
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+        }
+
+        .lp-haltung-item h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            margin-top: 0;
+        }
+
+        .lp-haltung-item p {
+            font-size: 0.95rem;
+            color: var(--color-secondary);
+            line-height: 1.7;
+            margin: 0;
+            max-width: 100%;
+        }
+
+        /* ===== PACKAGES ===== */
+        .lp-packages {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .lp-packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            align-items: start;
+        }
+
+        .lp-package {
+            border: 1px solid var(--color-border);
+            padding: 2.5rem;
+            position: relative;
+            transition: border-color 0.3s ease;
+        }
+
+        .lp-package:hover {
+            border-color: var(--color-primary);
+        }
+
+        .lp-package.highlight {
+            border-color: var(--color-primary);
+            border-width: 2px;
+        }
+
+        .lp-package-badge {
+            position: absolute;
+            top: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.4rem 1.2rem;
+            white-space: nowrap;
+        }
+
+        .lp-package h3 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .lp-package-subtitle {
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .lp-package ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem;
+        }
+
+        .lp-package ul li {
+            font-size: 0.95rem;
+            color: var(--color-secondary);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--color-border);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .lp-package ul li:last-child {
+            border-bottom: none;
+        }
+
+        .lp-package ul li::before {
+            content: "—";
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .lp-package-price {
+            margin-bottom: 1.5rem;
+        }
+
+        .lp-package-price .price {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 300;
+            display: block;
+            line-height: 1;
+        }
+
+        .lp-package-price .price-original {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            text-decoration: line-through;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .lp-package .btn {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+
+        /* ===== ERGÄNZUNGEN ===== */
+        .lp-extras {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--color-bg-light);
+        }
+
+        .lp-extras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .lp-extra-item {
+            padding: 1.5rem;
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .lp-extra-item h4 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .lp-extra-item p {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            margin: 0;
+        }
+
+        /* ===== ABSCHNITT 8 – WAS BLEIBT ===== */
+        .lp-closing {
+            padding: var(--spacing-lg) 0;
+            text-align: center;
+        }
+
+        .lp-closing blockquote {
+            font-family: var(--font-serif);
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--color-primary);
+        }
+
+        .lp-closing p {
+            color: var(--color-secondary);
+            margin: 0 auto;
+        }
+
+        /* ===== ABLAUF ===== */
+        .lp-ablauf {
+            padding: var(--spacing-lg) 0;
+            background-color: var(--color-bg-light);
+        }
+
+        .lp-ablauf-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+            margin-top: 3rem;
+            counter-reset: steps;
+        }
+
+        .lp-step {
+            padding: 2rem;
+            border: 1px solid var(--color-border);
+            border-right: none;
+            background-color: var(--color-bg);
+            position: relative;
+        }
+
+        .lp-step:last-child {
+            border-right: 1px solid var(--color-border);
+        }
+
+        .lp-step-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 300;
+            color: var(--color-border);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .lp-step h4 {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+        }
+
+        .lp-step p {
+            font-size: 0.9rem;
+            color: var(--color-secondary);
+            margin: 0;
+            max-width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .lp-ablauf-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .lp-step {
+                border-right: 1px solid var(--color-border);
+                border-bottom: none;
+            }
+
+            .lp-step:last-child {
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .lp-packages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== FINAL CTA ===== */
+        .lp-final-cta {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .lp-final-cta h2 {
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .lp-final-cta p {
+            color: var(--color-secondary);
+            margin: 0 auto 3rem;
+        }
+    </style>
+
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="../index.html" class="logo">Ludovika</a>
+            <button class="nav-toggle" aria-label="Navigation öffnen">☰</button>
+            <ul class="nav-menu">
+                <li><a href="../ludovika.html">Ludovika</a></li>
+                <li><a href="../hochzeiten.html">Hochzeiten</a></li>
+                <li><a href="../firmen.html">Firmen</a></li>
+                <li><a href="../ueber-tom.html">Über mich</a></li>
+                <li><a href="../kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ABSCHNITT 1 – Hero -->
+    <section class="lp-hero" style="position: relative; padding: 0; min-height: 70vh;">
+        <img src="../assets/images/landingpage/hero.jpg" alt="Hochzeit" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+        <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.5));"></div>
+        <div style="position:relative;z-index:10;text-align:center;color:white;padding:8rem 2rem 4rem;">
+            <span class="lp-hero-label" style="color:rgba(255,255,255,0.8);">Eure Hochzeit</span>
+            <h1 id="names" style="color:white;">Vorname & Vorname</h1>
+            <div class="lp-divider" style="background:rgba(255,255,255,0.4);"></div>
+            <p style="color:rgba(255,255,255,0.9);">danke für euer Vertrauen.</p>
+            <p style="color:rgba(255,255,255,0.9);">Euren Hochzeitstag begleiten zu dürfen ist für mich Verantwortung – und eine echte Ehre. Ich verstehe mich nicht als Dienstleister, sondern als ruhigen Begleiter eures Tages.</p>
+            <p style="color:rgba(255,255,255,0.9);">Was dabei entsteht, sind Bilder, die bleiben. Nicht für den Moment – sondern für viele Jahre.</p>
+        </div>
+    </section>
+
+    <!-- ABSCHNITT 2 – Video -->
+    <section class="lp-video-section">
+        <div class="lp-video-wrapper">
+            <span class="lp-video-label">Persönliche Worte</span>
+            <h2 class="lp-video-title">Ein paar Worte an euch, <span id="namesShort">Vorname & Vorname</span></h2>
+            <div class="lp-video-placeholder" id="videoContainer">
+                <!-- Video wird per JS befüllt -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ABSCHNITT 3 – Summary -->
+    <section class="lp-summary">
+        <div class="container-text">
+            <span class="section-subtitle">Euer Tag</span>
+            <h2>Im Überblick</h2>
+            <div class="lp-summary-grid">
+                <div class="lp-summary-item">
+                    <strong>Datum</strong>
+                    <span id="date">—</span>
+                </div>
+                <div class="lp-summary-item">
+                    <strong>Location</strong>
+                    <span id="location">—</span>
+                </div>
+                <div class="lp-summary-item">
+                    <strong>Fahrtkosten</strong>
+                    <span>inklusive</span>
+                </div>
+                <div class="lp-summary-item">
+                    <strong>Übernachtung</strong>
+                    <span>keine</span>
+                </div>
+                <div class="lp-summary-item">
+                    <strong>Angebotsnummer</strong>
+                    <span id="offerNumber">—</span>
+                </div>
+            </div>
+            <div class="lp-reservation">
+                <p>Euer Termin ist exklusiv reserviert bis: <strong id="reservationUntil">—</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABSCHNITT 4 – Haltung -->
+    <section class="lp-haltung">
+        <div class="container">
+            <span class="section-subtitle">Meine Arbeitsweise</span>
+            <h2>Wie ich arbeite</h2>
+            <div class="lp-haltung-grid">
+                <div class="lp-haltung-item">
+                    <h3>Persönliche Begleitung</h3>
+                    <p>Ich begleite euch nicht als gebuchter Fremder, sondern als vertrauter, ruhiger Beobachter. Ich halte mich im Hintergrund – und übernehme Führung, wenn sie gebraucht wird.</p>
+                </div>
+                <div class="lp-haltung-item">
+                    <h3>Erfahrung & Ruhe</h3>
+                    <p>Über zehn Jahre professionelle Fotografie und viele Hochzeiten geben mir Sicherheit – in dynamischen Situationen, bei wechselndem Licht und engen Zeitplänen.</p>
+                </div>
+                <div class="lp-haltung-item">
+                    <h3>Dokumentarische Bildsprache</h3>
+                    <p>Echte Momente entstehen durch Aufmerksamkeit. Ich arbeite überwiegend lautlos und unauffällig. Blitz setze ich gezielt und dezent ein – wenn es dem Bild dient.</p>
+                </div>
+                <div class="lp-haltung-item">
+                    <h3>Technische Sicherheit</h3>
+                    <p>Zwei Kameras, vollständiges Backup-Equipment und sofortige Datensicherung. Sollte es je nötig sein, greift mein Netzwerk aus gleichwertig erfahrenen Fotografinnen und Fotografen.</p>
+                </div>
+                <div class="lp-haltung-item">
+                    <h3>Sorgfältige Ausarbeitung</h3>
+                    <p>Jedes Bild wird bewusst ausgewählt und fein abgestimmt. Eure Galerie ist in etwa zwei Wochen fertig.</p>
+                </div>
+                <div class="lp-haltung-item">
+                    <h3>Bilder sind für die Wand gedacht</h3>
+                    <p>Meine Arbeit endet nicht mit einer Online-Galerie. Ich glaube an Werke, die man in die Hand nehmen und an die Wand hängen kann. Print ist kein Extra – sondern Vollendung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bild nach Abschnitt 4 -->
+    <div style="width:100%;aspect-ratio:16/7;overflow:hidden;background-color:var(--color-bg-light);">
+        <img src="../assets/images/landingpage/image-01.jpg" alt="Hochzeit" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+    </div>
+
+    <!-- ABSCHNITT 5 – Buchung Intro -->
+    <section class="content-section">
+        <div class="container-text">
+            <span class="section-subtitle">Euer Hochzeitstag</span>
+            <h2>Der nächste Schritt</h2>
+            <p>Sobald ihr euch entschieden habt, erhaltet ihr die Buchungsvereinbarung. Mit der Anzahlung von 500 € ist euer Termin verbindlich fixiert.</p>
+        </div>
+    </section>
+
+    <!-- ABSCHNITT 6 – Packages -->
+    <section class="lp-packages">
+        <div class="container">
+            <span class="section-subtitle">Die Begleitungsmöglichkeiten</span>
+            <h2>Was ich euch anbiete</h2>
+            <div class="lp-packages-grid">
+
+                <!-- Paket 3 – Vollständige Geschichte (JETZT LINKS) -->
+                <div class="lp-package">
+                    <h3>Die vollständige Hochzeitsgeschichte</h3>
+                    <p class="lp-package-subtitle">Vom ersten Moment bis zur letzten Umarmung – ohne Zeitdruck.</p>
+                    <ul>
+                        <li>Ganztägige Begleitung</li>
+                        <li>ca. 600 Bilder</li>
+                        <li>1 Fotograf + Second Shooter</li>
+                        <li>Kennenlern-Shooting</li>
+                        <li>Online-Galerie (1 Jahr)</li>
+                        <li>Große Erinnerungsbox</li>
+                        <li>Großes Print-Paket</li>
+                        <li>Signiertes Wandwerk in Galerie-Qualität</li>
+                        <li>Exklusive Überraschung</li>
+                    </ul>
+                    <div class="lp-package-price">
+                        <span class="price">8.900 €</span>
+                        <span class="price-original">Gesamtwert über 11.000 €</span>
+                    </div>
+                    <a href="#" class="btn btn-contact-modal">Jetzt buchen</a>
+                </div>
+
+                <!-- Paket 2 – Highlight (JETZT MITTE) -->
+                <div class="lp-package highlight">
+                    <span class="lp-package-badge">Am häufigsten gewählt</span>
+                    <h3>Die ausgewogene Begleitung</h3>
+                    <p class="lp-package-subtitle">Für Paare, die ihren Tag vollständig dokumentiert wissen möchten.</p>
+                    <ul>
+                        <li>Begleitung bis zu 12 Stunden</li>
+                        <li>ca. 500 Bilder</li>
+                        <li>1 Fotograf + Assistenz</li>
+                        <li>Online-Galerie</li>
+                        <li>Erinnerungsbox</li>
+                        <li>Kuratiertes Print-Set</li>
+                        <li>Persönliche Präsentation im Studio</li>
+                    </ul>
+                    <div class="lp-package-price">
+                        <span class="price">5.200 €</span>
+                        <span class="price-original">Gesamtwert 6.200 €</span>
+                    </div>
+                    <a href="#" class="btn btn-primary btn-contact-modal">Jetzt buchen</a>
+                </div>
+
+                <!-- Paket 1 – Kompakt (JETZT RECHTS) -->
+                <div class="lp-package">
+                    <h3>Die kompakte Begleitung</h3>
+                    <p class="lp-package-subtitle">Für intime Feiern oder klar strukturierte Hochzeitstage.</p>
+                    <ul>
+                        <li>Begleitung bis zu 9 Stunden</li>
+                        <li>ca. 400 sorgfältig ausgewählte Bilder</li>
+                        <li>1 Fotograf + Assistenz</li>
+                        <li>Online-Galerie</li>
+                        <li>Persönliche Bildauswahl</li>
+                        <li>Erweiterungsmöglichkeiten</li>
+                    </ul>
+                    <div class="lp-package-price">
+                        <span class="price">3.500 €</span>
+                    </div>
+                    <a href="#" class="btn btn-contact-modal">Jetzt buchen</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bild nach Abschnitt 6 -->
+    <div style="width:100%;aspect-ratio:16/7;overflow:hidden;background-color:var(--color-bg-light);">
+        <img src="../assets/images/landingpage/image-02.jpg" alt="Hochzeit" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+    </div>
+
+    <!-- ABSCHNITT 7 – Extras -->
+    <section class="lp-extras">
+        <div class="container">
+            <span class="section-subtitle">Individuelle Ergänzungen</span>
+            <h2>Für besondere Wünsche</h2>
+            <div class="lp-extras-grid">
+                <div class="lp-extra-item">
+                    <h4>Fotobox</h4>
+                    <p>ab 400 €</p>
+                </div>
+                <div class="lp-extra-item">
+                    <h4>Engagement-Shooting Outdoor</h4>
+                    <p>ab 400 €</p>
+                </div>
+                <div class="lp-extra-item">
+                    <h4>Hochwertiges Hochzeitsalbum</h4>
+                    <p>ab 400 €</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABSCHNITT 8 – Was bleibt -->
+    <section class="lp-closing">
+        <div class="container-text">
+            <blockquote>In zehn Jahren erinnert ihr euch nicht an den Preis. Ihr erinnert euch an das Gefühl – wie jemand dabei war.</blockquote>
+            <div class="lp-divider"></div>
+            <p>Hört auf euer Bauchgefühl, <span id="namesClosing">Vorname & Vorname</span>.</p>
+        </div>
+    </section>
+
+    <!-- Bild nach Abschnitt 8 -->
+    <div style="width:100%;aspect-ratio:16/7;overflow:hidden;background-color:var(--color-bg-light);">
+        <img src="../assets/images/landingpage/image-03.jpg" alt="Hochzeit" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+    </div>
+
+    <!-- ABSCHNITT 9 – Weitergeht -->
+    <section class="content-section" style="background-color: var(--color-bg-light);">
+        <div class="container-text">
+            <h2>Wie es weitergeht</h2>
+            <p>Für mich ist eine Hochzeit kein Auftrag. Es geht um euch als Menschen – und um einen Tag, der Bedeutung hat.</p>
+            <p>Wenn ihr möchtet, gehen wir diesen Weg gemeinsam.</p>
+        </div>
+    </section>
+
+    <!-- ABSCHNITT 10 – Ablauf -->
+    <section class="lp-ablauf">
+        <div class="container">
+            <span class="section-subtitle">Der Ablauf</span>
+            <h2>So geht es weiter</h2>
+            <div class="lp-ablauf-steps">
+                <div class="lp-step">
+                    <div class="lp-step-number">01</div>
+                    <h4>Buchung</h4>
+                    <p>Ihr erhaltet die Buchungsvereinbarung direkt von mir.</p>
+                </div>
+                <div class="lp-step">
+                    <div class="lp-step-number">02</div>
+                    <h4>Anzahlung</h4>
+                    <p>Mit Eingang der Anzahlung ist euer Termin verbindlich reserviert.</p>
+                </div>
+                <div class="lp-step">
+                    <div class="lp-step-number">03</div>
+                    <h4>Vorbereitung</h4>
+                    <p>Ihr erhaltet mein eBook zur Vorbereitung und erreicht mich jederzeit per WhatsApp.</p>
+                </div>
+                <div class="lp-step">
+                    <div class="lp-step-number">04</div>
+                    <h4>Euer Tag</h4>
+                    <p>Ihr könnt euch auf das Feiern konzentrieren. Den Rest übernehme ich.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABSCHNITT 11 – Final CTA -->
+    <section class="lp-final-cta">
+        <div class="container-text">
+            <h2>Euer Buchungsantrag</h2>
+            <p>Ein erstes Gespräch klärt, ob diese Art zu arbeiten passt. Ohne Verpflichtung, ohne Erwartung.</p>
+            <a href="#" class="btn btn-primary btn-center btn-contact-modal">Gemeinsam in die Hochzeit</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutz.html">Datenschutz</a>
+                <a href="../agb.html">AGB</a>
+            </div>
+            <p class="copyright">© 2026 LUDOVIKA | Tom Kästenbauer</p>
+        </div>
+    </footer>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner">
+        <div class="container">
+            <p class="cookie-text">
+                Diese Website verwendet Cookies. Weitere Informationen in unserer
+                <a href="../datenschutz.html" style="text-decoration: underline;">Datenschutzerklärung</a>.
+            </p>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-decline">Ablehnen</button>
+                <button class="cookie-btn cookie-accept accept">Akzeptieren</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/main.js"></script>
+    <script src="loadData.js"></script>
+    <script defer src="https://api.kreativ.management/Form/GetContactFormWidget"></script>
+
+</body>
+</html>

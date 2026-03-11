@@ -1,0 +1,17 @@
+# robots.txt für LUDOVIKA
+# Schützt die Hochzeits-Landingpages vor Suchmaschinen-Indexierung
+
+User-agent: *
+
+# Erlaube Hauptseite
+Allow: /
+
+# Erlaube Hochzeiten-Übersichtsseite
+Allow: /hochzeiten$
+Allow: /hochzeiten/$
+
+# Blockiere alle individuellen Hochzeits-Landingpages
+Disallow: /hochzeiten/*/
+
+# Optionale Einstellungen
+# Sitemap: https://ludovika.at/sitemap.xml

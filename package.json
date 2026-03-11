@@ -1,17 +1,26 @@
 {
-  "name": "webseiten",
+  "name": "ludovika-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "LUDOVIKA - Fotografie Website mit Eleventy",
   "scripts": {
-  "build": "eleventy",
-  "start": "eleventy --serve"
-},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "@11ty/eleventy": "^3.1.2"
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build",
+    "watch": "eleventy --serve --watch"
+  },
+  "keywords": [
+    "eleventy",
+    "photography",
+    "static-site"
+  ],
+  "author": "Tom Kästenbauer",
+  "license": "UNLICENSED",
+  "private": true,
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
